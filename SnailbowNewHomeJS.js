@@ -58,6 +58,7 @@ $(window).resize(function(){
 var DragPoint = {
     _startY: 0,
     _yPosition: 0,
+    _SPEED: 0.5,
     init: function()
     {
         $(window).bind("mousedown touchstart", UTILS.bind(this, this.onTouchStart));
@@ -80,7 +81,7 @@ var DragPoint = {
         event.preventDefault()
         var vector = UTILS.getPositionFromMouseTouchEvent(event);
         var ydiffer = this._startY - vector.y;
-        this._yPosition += ydiffer * 0.3;
+        this._yPosition += ydiffer * this._SPEED;
 
         this.validateYPosition();
 
