@@ -15,12 +15,25 @@ $(window).resize(function() {
     });
 });
 
-
-var bind = function(scope, fn) {
-    return function () {
-        fn.apply(scope, arguments);
-    };
-};
+var UTILS = {
+    bind: function(scope, fn) {
+        return function () {
+            fn.apply(scope, arguments);
+        };
+    },
+    getPositionFromMouseTouchEvent: function(event)
+    {
+        if(event.originalEvent && (event.originalEvent.touches || event.originalEvent.changedTouches))
+        {
+            var touch = event.originalEvent.touches[0] ? event.originalEvent.touches : event.originalEvent.changedTouches;
+            return {x: touch[0].pageX, y: touch[0].pageY, length: touch.length};
+        }
+        else
+        {
+            return {x: event.pageX, y: event.pageY, length: 0};
+        }
+    }
+}
 
 
 $(document).ready(function(){
@@ -31,34 +44,78 @@ $(document).ready(function(){
     })
 
     SnailBoxScrollManager.init();
+    DragPoint.init();
 });
 
 $(window).resize(function(){
     $(".centre").each(function(){
-            $(this).css({
-                    'margin-top': -$(this).height() / 2
-                });
+        $(this).css({
+                'margin-top': -$(this).height() / 2
+            });
     })
 });
+
+var DragPoint = {
+    _startY: 0,
+    _yPosition: 0,
+    init: function()
+    {
+        $(window).bind("mousedown touchstart", UTILS.bind(this, this.onTouchStart));
+        $(window).bind("mouseup touchend", UTILS.bind(this, this.onTouchEnd));
+    },
+    onTouchStart: function(event)
+    {
+        event.preventDefault()
+        $(window).bind("mousemove touchmove", UTILS.bind(this, this.onTouchMove));
+        var vector = UTILS.getPositionFromMouseTouchEvent(event);
+        this._startY = vector.y;
+    },
+    onTouchEnd: function(event)
+    {
+        event.preventDefault()
+        $(window).unbind("mousemove touchmove");
+    },
+    onTouchMove: function(event)
+    {
+        event.preventDefault()
+        var vector = UTILS.getPositionFromMouseTouchEvent(event);
+        var ydiffer = this._startY - vector.y;
+        this._yPosition += ydiffer * 0.3;
+
+        this.validateYPosition();
+
+        console.log(this._yPosition, vector.x, vector.y);
+
+        SnailBoxScrollManager.doScroll(this._yPosition);
+    },
+    validateYPosition: function()
+    {
+        if(this._yPosition < 0)
+            this._yPosition = 0;
+        if( this._yPosition > SnailBoxScrollManager.MAX_SCROLL)
+            this._yPosition = SnailBoxScrollManager.MAX_SCROLL;
+
+        this._yPosition = Math.round(this._yPosition);
+    }
+}
 
 var SnailBoxScrollManager = {
     coswavelength: 1000,
     coswavelength2: 200,
+    //keep updating the MAX_SCROLL when you expand the narrative
+    MAX_SCROLL: 53500,
     init: function()
     {
-        $(document).scroll(bind(this, this.onWindowScroll));
+        $(document).scroll(UTILS.bind(this, this.onWindowScroll));
     },
     onWindowScroll: function()
     {
-        this.onScroll($(document).scrollTop())
+        this.doScroll($(document).scrollTop())
     },
-    onScroll: function(scrollPos)
+    doScroll: function(scrollPos)
     {
-        //var cos = Math.floor((Math.cos(scrollPos))*10), cos2
-
         var cos = Math.floor( (Math.cos ( scrollPos / this.coswavelength ) ) *10);
         var cos2 = Math.floor( (Math.cos ( scrollPos / this.coswavelength2 ) ) *10);
-
 
         $('#floor').css({
             'margin-left': - scrollPos / 7.5
