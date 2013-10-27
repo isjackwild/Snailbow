@@ -44,7 +44,11 @@ $(document).ready(function(){
     })
 
     SnailBoxScrollManager.init();
-    DragPoint.init();
+    
+    if (Modernizr.touch) {
+        DragPoint.init();
+    }
+
 });
 
 $(window).resize(function(){
@@ -54,6 +58,8 @@ $(window).resize(function(){
             });
     })
 });
+
+
 
 var DragPoint = {
     _startY: 0,
@@ -100,6 +106,8 @@ var DragPoint = {
     }
 }
 
+
+
 var SnailBoxScrollManager = {
     coswavelength: 1000,
     coswavelength2: 200,
@@ -117,6 +125,23 @@ var SnailBoxScrollManager = {
     {
         var cos = Math.floor( (Math.cos ( scrollPos / this.coswavelength ) ) *10);
         var cos2 = Math.floor( (Math.cos ( scrollPos / this.coswavelength2 ) ) *10);
+
+        
+        $('.textslide').css({
+            'margin-top': - scrollPos
+        });
+
+        $('#floorend').css({
+            'margin-top': - scrollPos
+        });
+
+        $('#ready').css({
+            'margin-top': - scrollPos
+        });
+
+        $('#title').css({
+            'margin-top': - scrollPos
+        });
 
         $('#floor').css({
             'margin-left': - scrollPos / 7.5

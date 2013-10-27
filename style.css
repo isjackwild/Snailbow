@@ -76,7 +76,7 @@ img {
 }
 
 #ready {
-    position: absolute;
+    position: fixed;
     width: 500px;
     margin-left: -250px;
     text-align: center;
@@ -139,7 +139,7 @@ h2 {
     min-height: 80%;
     background-color: white;
     z-index: 30;
-    position: absolute;
+    position: fixed;
     top: 0px;
     border: 1px solid grey;
     border-radius: 8px;
@@ -175,76 +175,76 @@ h2 {
 
 
 #t1 {
-    margin-top: 3000px;
+    top: 3000px;
 }
 
 
 #t2 {
-    margin-top: 6000px;
+    top: 6000px;
 }
 
 #t3 {
-    margin-top: 9000px;
+    top: 9000px;
 }
 
 #t4 {
-    margin-top: 12000px;
+    top: 12000px;
 }
 
 #t5 {
-    margin-top: 15000px;
+    top: 15000px;
 }
 
 #t6 {
-    margin-top: 18000px;
+    top: 18000px;
 }
 
 #t7 {
-    margin-top: 21000px;
+    top: 21000px;
 }
 
 #t8 {
-    margin-top: 24000px;
+    top: 24000px;
 }
 
 #t9 {
-    margin-top: 27000px;
+    top: 27000px;
 }
 
 #t10 {
-    margin-top: 30000px;
+    top: 30000px;
 }
 
 #t11 {
-    margin-top: 33000px;
+    top: 33000px;
 }
 
 #t12 {
-    margin-top: 36000px;
+    top: 36000px;
 }
 
 #t13 {
-    margin-top: 39000px;
+    top: 39000px;
 }
 
 #t14 {
-    margin-top: 41000px;
+    top: 41000px;
 }
 
 #t15 {
-    margin-top: 44000px;
+    top: 44000px;
 }
 
 #t16 {
-    margin-top: 47000px;
+    top: 47000px;
 }
 
 #t17 {
-    margin-top: 50000px;
+    top: 50000px;
 }
 
 #t18 {
-    margin-top: 56000px;
+    top: 56000px;
     font-size: 0.7em;
     line-height: 1em;
 }
@@ -276,7 +276,7 @@ h2 {
     z-index: 10;
     height: 100%;
     width: 100%;
-    position: absolute;
+    position: fixed;
     top: 0;
     box-shadow: 0 0 5px;
     -webkit-transform: translate3d(0,0,0);
