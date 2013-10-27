@@ -283,6 +283,10 @@ h2 {
 
 }
 
+#bgend {
+    height: 53500px;
+}
+
 #end {
     background-color: white;
     background-image:url('SnailbowAssets/end.png');
@@ -589,7 +593,6 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
     .endtext p {
     font-size: 0.9em;
     line-height: 1.2em;
-    font-family: Montserrat; 
     }
 
     .centre {
@@ -630,7 +633,6 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
     .endtext p {
     font-size: 0.9em;
     line-height: 1.2em;
-    font-family: Montserrat; 
     }
 
     .centre {

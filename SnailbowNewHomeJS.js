@@ -3,6 +3,10 @@ $(window).load(function() {
         'height': ($(window).height())
     });
 
+    $('#bgend').css({
+        'height': ($(window).height()) + 53500
+    });
+
     $('#load').addClass("hide");
     $('#ready').removeClass("hide");
 
@@ -13,6 +17,11 @@ $(window).resize(function() {
     $('#end').css({
         'height': ($(window).height())
     });
+
+    $('#bgend').css({
+        'height': ($(window).height()) + 53500
+    });
+    
 });
 
 var UTILS = {
