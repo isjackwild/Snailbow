@@ -578,9 +578,9 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
 
 
 
-@media (max-height: 475px) {
+@media (max-height: 320px) {
     #topwhite {
-        height: 32%;
+        height: 33%;
     }
 }
 
@@ -592,7 +592,7 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
 
     .endtext p {
     font-size: 0.9em;
-    line-height: 1.2em;
+    line-height: 1em;
     }
 
     .centre {
@@ -601,8 +601,8 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
     }
 
     .endtext{
-    width: 80%;
-    margin-left: 10%;
+    width: 100%;
+    margin-left: 0%;
     padding: 15px;
     padding-top: 3%;
     }
@@ -617,7 +617,19 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
     }
 
     .size img {
-        width: 30%;
+        width: 25%;
+    }
+
+    .cloud-s {
+        top: 20px; 
+    }
+
+    .cloud-m {
+        top: 15px; 
+    }
+
+    .cloud-l {
+        top: 10px; 
     }
 }
 
