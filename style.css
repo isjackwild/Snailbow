@@ -1,4 +1,4 @@
-@import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
+ @import url(http://fonts.googleapis.com/css?family=Montserrat+Alternates);
 @import url(http://fonts.googleapis.com/css?family=Muli:400,400italic);
 
 
@@ -63,6 +63,8 @@ img {
     font-size: 0.9em;
 }
 
+
+
 #load {
     position: absolute;
     width: 500px;
@@ -75,15 +77,55 @@ img {
     color: grey;
 }
 
-#ready {
-    position: fixed;
-    width: 500px;
-    margin-left: -250px;
+#notablet {
+    position: absolute;
+    width: 600px;
+    margin-left: -300px;
     text-align: center;
     top: 50%;
     left: 50%;
     z-index: 25;
     font-size: 1.5em;
+    color: #f06454;
+}
+
+#ready {
+    position: fixed;
+    width: 400px;
+    margin-left: -200px;
+    text-align: center;
+    top: 47%;
+    left: 50%;
+    z-index: 25;
+    font-size: 1.5em;
+    float: left;
+}
+
+#ready h1 {
+    margin-bottom: 5px;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    text-align: center;
+    overflow: hidden;
+    display: inline-block;
+}
+
+li {
+    display: inline;
+    float: left;
+    margin-right: 10px;
+}
+
+.last {
+    margin-right: 0px;
+}
+
+.active {
+    color: #f06454;
 }
 
 #stroll {
@@ -430,7 +472,7 @@ h2 {
 
 #floor {
     height: 23%;
-    width: 15000px;
+    width: 100%;
     position: fixed;
     bottom: 0;
     margin-left: 0px;
@@ -450,102 +492,102 @@ h2 {
 
 #cloud-1 {
     top: 110px;
-    padding-left: 100px;
+    left: 100px;
 }
 
 #cloud-2 {
     top: 20px;
-    padding-left: 430px;
+    left: 430px;
 }
 
 #cloud-3 {
     top: 48px;
-    padding-left: 1250px;
+    left: 1250px;
 }
 
 #cloud-4 {
     top: 100px;
-    padding-left: 2050px;
+    left: 2050px;
 }
 
 #cloud-5 {
     top: 60px;
-    padding-left: 2500px;
+    left: 2500px;
 }
 
 #cloud-6 {
     top: 18px;
-    padding-left: 4150px;
+    left: 4150px;
 }
 
 #cloud-7 {
     top: 20px;
-    padding-left: 4000px;
+    left: 4000px;
 }
 
 #cloud-8 {
     top: 32px;
-    padding-left: 4800px;
+    left: 4800px;
 }
 
 #cloud-9 {
     top: 50px;
-    padding-left: 5680px;
+    left: 5680px;
 }
 
 #cloud-10 {
     top: 70px;
-    padding-left: 5090px;
+    left: 5090px;
 }
 
 #cloud-11 {
     top: 100px;
-    padding-left: 5800px;
+    left: 5800px;
 }
 
 #cloud-12 {
     top: 10px;
-    padding-left: 7930px;
+    left: 7930px;
 }
 
 #cloud-13 {
     top: 30px;
-    padding-left: 7900px;
+    left: 7900px;
 }
 
 #cloud-14 {
     top: 48px;
-    padding-left: 7680px;
+    left: 7680px;
 }
 
 #cloud-15 {
     top: 100px;
-    padding-left: 14930px;
+    left: 14930px;
 }
 
 #cloud-16 {
     top: 33px;
-    padding-left: 12200px;
+    left: 12200px;
 }
 
 #cloud-17 {
     top: 70px;
-    padding-left: 9550px;
+    left: 9550px;
 }
 
 #cloud-18 {
     top: 70px;
-    padding-left: 9850px;
+    left: 9850px;
 }
 
 #cloud-19 {
     top: 20px;
-    padding-left: 6200px;
+    left: 6200px;
 }
 
 #cloud-20 {
     top: 100px;
-    padding-left: 11350px;
+    left: 11350px;
 }
 
 

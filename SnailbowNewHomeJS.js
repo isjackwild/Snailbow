@@ -9,8 +9,59 @@ $(window).load(function() {
 
     $('#load').addClass("hide");
     $('#ready').removeClass("hide");
+});
+
+
+$(document).ready(function(){
+
+
+    if (Modernizr.touch) {
+        $('#wrapper').addClass("mute");
+        $('#notablet').removeClass("mute");
+    }
+
+    $(".centre").each(function(){
+        $(this).css({
+           'margin-top': -$(this).height() / 2
+        });
+    });
+
+    $('#selectDE').click(function() {
+        $('#selectEN').removeClass("active");
+        $('#selectDE').addClass("active");
+        $('.en').addClass("hide");
+        $('.de').removeClass("hide");
+        $(".centre").each(function(){
+            $(this).css({
+               'margin-top': -$(this).height() / 2
+            });
+        });
+    });
+
+    $('#selectEN').click(function() {
+        $('#selectDE').removeClass("active");
+        $('#selectEN').addClass("active");
+        $('.de').addClass("hide");
+        $('.en').removeClass("hide");
+        
+        $(".centre").each(function(){
+            $(this).css({
+               'margin-top': -$(this).height() / 2
+            });
+        });
+    });
+
+SnailBoxScrollManager.init();
+    
+    // if (Modernizr.touch) {
+    //     DragPoint.init();
+    //     $('#wrapper').addClass("mute");
+    //     $('#wrapper').removeClass("mute");
+    // }
 
 });
+
+
 
 
 $(window).resize(function() {
@@ -20,6 +71,12 @@ $(window).resize(function() {
 
     $('#bgend').css({
         'height': ($(window).height()) + 53500
+    });
+
+    $(".centre").each(function(){
+        $(this).css({
+                'margin-top': -$(this).height() / 2
+            });
     });
     
 });
@@ -45,35 +102,11 @@ var UTILS = {
 }
 
 
-$(document).ready(function(){
-    $(".centre").each(function(){
-        $(this).css({
-           'margin-top': -$(this).height() / 2
-        });
-    })
-
-    SnailBoxScrollManager.init();
-    
-    if (Modernizr.touch) {
-        DragPoint.init();
-    }
-
-});
-
-$(window).resize(function(){
-    $(".centre").each(function(){
-        $(this).css({
-                'margin-top': -$(this).height() / 2
-            });
-    })
-});
-
-
 
 var DragPoint = {
     _startY: 0,
     _yPosition: 0,
-    _SPEED: 0.5,
+    _SPEED: 0.06,
     init: function()
     {
         $(window).bind("mousedown touchstart", UTILS.bind(this, this.onTouchStart));
@@ -130,50 +163,49 @@ var SnailBoxScrollManager = {
     {
         this.doScroll($(document).scrollTop())
     },
+    addXAndYToElement: function(x, y)
+    {
+        return {
+            '-moz-transform': 'translate('+x+'px,'+y+'px)',
+            '-webkit-transform': 'translate('+x+'px,'+y+'px)',
+            'transform': 'translate('+x+'px,'+y+'px)'
+        }
+    },
     doScroll: function(scrollPos)
     {
         var cos = Math.floor( (Math.cos ( scrollPos / this.coswavelength ) ) *10);
         var cos2 = Math.floor( (Math.cos ( scrollPos / this.coswavelength2 ) ) *10);
 
-        
-        $('.textslide').css({
-            'margin-top': - scrollPos
-        });
+        var minusScrollPos = scrollPos * -1
+        $('.textslide').css(this.addXAndYToElement(0, minusScrollPos))
 
-        $('#floorend').css({
-            'margin-top': - scrollPos
-        });
+        $('#ready').css(this.addXAndYToElement(0, minusScrollPos))
 
-        $('#ready').css({
-            'margin-top': - scrollPos
-        });
-
-        $('#title').css({
-            'margin-top': - scrollPos
-        });
+        $('#title').css(this.addXAndYToElement(0, minusScrollPos))
 
         $('#floor').css({
-            'margin-left': - scrollPos / 7.5
+            'background-position': (-scrollPos/7.5)+ "px 0px"
         });
 
+        // $('.cloud-m').css(this.addXAndYToElement(minusScrollPos / 5, 0))
         $('.cloud-m').css({
-            'margin-left': - scrollPos / 5
+            'margin-left': minusScrollPos / 5
         });
 
         $('.cloud-s').css({
-            'margin-left': - scrollPos / 7
+            'margin-left': minusScrollPos / 7
         });
 
         $('.cloud-l').css({
-            'margin-left': - scrollPos / 4
+            'margin-left': minusScrollPos / 4
         });
 
         $('#dandy-1').css({
-            'margin-left': - scrollPos / 10
+            'margin-left': minusScrollPos / 10
         });
 
         $('#dandy-2').css({
-            'margin-left': - scrollPos / 7
+            'margin-left': minusScrollPos / 7
         });
 
         $('#dandy-1').css({
@@ -185,11 +217,11 @@ var SnailBoxScrollManager = {
         });
 
         $('#leaf-3').css({
-            'margin-left': - (scrollPos) / 5
+            'margin-left': minusScrollPos / 5
         });
 
         $('#leaf-2').css({
-            'margin-left': - (scrollPos) / 7
+            'margin-left': minusScrollPos / 7
         });
 
         $('#leaf-3').css({
@@ -201,11 +233,11 @@ var SnailBoxScrollManager = {
         });
 
          $('#ooh').css({
-            'margin-left': - (scrollPos) / 1.5
+            'margin-left': minusScrollPos / 1.5
         });
 
         $('#aah').css({
-            'margin-left': - (scrollPos) / 1.5
+            'margin-left': minusScrollPos / 1.5
         });
 
         $('#ooh').css({
