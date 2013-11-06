@@ -338,6 +338,8 @@ var SnailBoxScrollManager = {
 
         if(scrollPos > 50){
             $('#music').removeClass("mute");
+        } else {
+            $('#music').addClass("mute");
         }
     }
 }

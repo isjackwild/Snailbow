@@ -143,7 +143,7 @@ li {
     height: 1px;
     top: 0;
     left: 0;
-    display: none;
+    //display: none;
 }
 
 
@@ -155,6 +155,10 @@ p {
     font-size: 2.6em;
     line-height: 1.6em;
     text-align: center;
+}
+
+p.de {
+    line-height: 1.4em;
 }
 
 h1 {
@@ -627,10 +631,16 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
 }
 
 
-@media (max-width: 599px){
+@media (max-width: 699px){
     p {
         font-size: 1em;
     }
+
+    #notablet {
+    width: 400px;
+    margin-left: -200px;
+    font-size: 1em;
+}
 
     .endtext p {
     font-size: 0.9em;
@@ -675,7 +685,7 @@ background: linear-gradient(to bottom,  #fd7867 0%,#fcf67c 10%,#92fcb0 20%,#81e7
     }
 }
 
-@media (min-width: 600px) and (max-width: 1000px) {
+@media (min-width: 700px) and (max-width: 1300px) {
     p {
         font-size: 1.7em;
     }
